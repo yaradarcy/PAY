@@ -1,5 +1,7 @@
 # Sistema Acadêmico Web
 
+**Equipe**: Ana Vitória, Anderson de Freitas, Pérolla da Silva e Yara França. 
+
 Esse Sistema foi desenvolvido com o intuito de auxiliar instituições de ensino, como escolas, no cadastro de alunos e professores, alem de dividir os campos que cada um pode ter acesso, como **Disciplinas**, **Avaliações**, **Notas**, **Aulas** e **Salarios**.
 
 ---
