@@ -1,28 +1,30 @@
 package APAY.projeto.sistema.web.model;
 
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.*;
+import lombok.Data;
 
-import java.lang.reflect.GenericArrayType;
-import java.util.HashSet;
+import java.util.Set;
 
 @Entity
-@Table(name ="Aluno")
+@Table(name="Aluno")
 @Data
 public class AlunoModel {
 
     @Id
-    @GeneratedValue(strategy = GenericArrayType.IDENTITY)
-    private long Matricula;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long matricula;
 
-    @column(nullble = fase, unique = true, length = 100)
+    @Column(nullable = false, length = 100)
+    private String nome;
+
+    @Column(nullable = false, unique = true, length = 100)
     private String email;
 
     @ManyToMany
-    @JoinTable (
-            name="Aluno_Disciplina",
-            joinColumns = @JoinColumn(name="aluno_id").
-            inverseJoinColumns = @JoinColumn(name"disciplina_id")
+    @JoinTable(
+            name="Alunos_na_Disciplina",
+            joinColumns = @JoinColumn(name="aluno_id"),
+            inverseJoinColumns = @JoinColumn(name="disciplina_id")
     )
     private Set<DisciplinaModel> disciplinas;
 }
