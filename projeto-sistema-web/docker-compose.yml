@@ -1,0 +1,26 @@
+version: "3.8"
+
+services:
+  projeto-sistema-web:
+    build:
+     context: .
+     dockerfile: Dockerfile
+    container_name: api-container
+    ports:
+      - "8080:8080"
+    enviroment:
+     SPRING_DATASOURCE_URL: jdbc:mysql://database:3306/projeto-sistema-web
+     SPRING_DATASOURCE_USERNAME: jdbc:postgresql://database:5432/projeto-sistema-web
+     SPRING_DATASOURCE_PASSWORD:
+     SPRING_JPA_HIBERNATE_DDL_AUTO: update
+    networks:
+     - app-network
+    volumes:
+     - .:/app
+
+  database:
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: your_database_name
+    volumes:
+      - database-data:/var/lib/mysql
